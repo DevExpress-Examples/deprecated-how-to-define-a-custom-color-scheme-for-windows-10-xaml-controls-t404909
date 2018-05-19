@@ -1,0 +1,24 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <ResourceDictionary x:Key="Custom">
+        <ResourceDictionary.ThemeDictionaries>
+            <ResourceDictionary x:Key="Default">
+                <SolidColorBrush x:Key="RibbonHeaderBackgroundBrush" Color="#FF164B2F"/>
+                <SolidColorBrush x:Key="RibbonHeaderItemForegroundSelectedBrush" Color="#FF164B2F"/>
+            </ResourceDictionary>
+            <ResourceDictionary x:Key="Light">
+                <SolidColorBrush x:Key="RibbonHeaderBackgroundBrush" Color="#FF418366"/>
+                <SolidColorBrush x:Key="RibbonHeaderItemForegroundSelectedBrush" Color="#FF419366"/>
+            </ResourceDictionary>
+        </ResourceDictionary.ThemeDictionaries>
+
+        <SolidColorBrush x:Key="RibbonHeaderItemForegroundBrush" Color="#FFFFFFFF"/>
+        <SolidColorBrush x:Key="RibbonContextualHeaderItemBackgroundBrush" Color="#33000000"/>
+        <SolidColorBrush x:Key="RibbonBackstageContentBackgroundBrush" Color="#44FFFFFF"/>
+        <SolidColorBrush x:Key="RibbonBackstageBackgroundBrush" Color="Transparent"/>
+    </ResourceDictionary>
+
+</ResourceDictionary>

@@ -1,0 +1,63 @@
+﻿<Page 
+    xmlns:Ribbon="using:DevExpress.UI.Xaml.Ribbon"
+    xmlns:Xaml="using:DevExpress.UI.Xaml"
+    x:Class="ColorSchemesDemo.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ColorSchemesDemo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    RequestedTheme="Light"
+    x:Name="Root"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <x:String x:Key="ThemeChangePath">[F#FF217346 M0,0 L5,0 L5,5 L0,5z][F#CC217346 M7,0 L12,0 L12,5 L7,5z][F#A0217346 M14,0 L19,0 L19,5 L14,5z]
+                                          [F#FF2B579A M0,7 L5,7 L5,12 L0,12z][F#CC2B579A M7,7 L12,7 L12,12 L7,12z][F#A02B579A M14,7 L19,7 L19,12 L14,12z]
+                                          [F#FFD24726 M0,14 L5,14 L5,19 L0,19z][F#CCD24726 M7,14 L12,14 L12,19 L7,19z][F#A0D24726 M14,14 L19,14 L19,19 L14,19z]</x:String>
+
+        <local:ThemeFriendlyNameConverter x:Key="ThemeFriendlyNameConverter"/>
+
+        <DataTemplate x:Key="SelectedItemTemplate" x:DataType="x:String">
+            <StackPanel Orientation="Horizontal">
+                <Xaml:MultiPath Data="{StaticResource ThemeChangePath}" Margin="0,2,10,0"/>
+                <TextBlock VerticalAlignment="Center" Text="{Binding}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="ThemeSelectedItemTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Xaml:MultiPath Data="{StaticResource ThemeChangePath}" Margin="0,2,10,0"/>
+                <TextBlock VerticalAlignment="Center" Text="{Binding Converter={StaticResource ThemeFriendlyNameConverter}}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="ThemeItemTemplate">
+            <TextBlock VerticalAlignment="Center" Text="{Binding Converter={StaticResource ThemeFriendlyNameConverter}}"/>
+        </DataTemplate>
+    </Page.Resources>
+    <Page.DataContext>
+        <local:MainViewModel/>
+    </Page.DataContext>
+    <Ribbon:RibbonControl Title="Document"
+                          EmbedRibbonInWindowTitle="True">
+        <Ribbon:RibbonControl.BackstageView>
+            <Ribbon:BackstageView Caption="File"/>
+        </Ribbon:RibbonControl.BackstageView>
+        <Ribbon:RibbonTab Caption="Main">
+            <Ribbon:RibbonGroup Caption="Color Schemes">
+                <Ribbon:RibbonComboBox Width="150" 
+                                       SelectedItemTemplate="{StaticResource SelectedItemTemplate}"
+                                       ItemsSource="{Binding ColorSchemeNames}"
+                                       SelectedItem="{Binding ColorSchemeName, Mode=TwoWay}"/>
+                <Ribbon:RibbonComboBox Width="150"
+                                       ItemsSource="{Binding Themes}"
+                                       SelectedItem="{Binding RequestedTheme, ElementName=Root, Mode=TwoWay}"
+                                       SelectedItemTemplate="{StaticResource ThemeSelectedItemTemplate}"
+                                       ItemTemplate="{StaticResource ThemeItemTemplate}"/>
+            </Ribbon:RibbonGroup>
+        </Ribbon:RibbonTab>
+        
+        <Ribbon:RibbonControl.Content>
+            <local:RichEditEx Source="ms-appx:///Assets/document.rtf"/>
+        </Ribbon:RibbonControl.Content>
+    </Ribbon:RibbonControl>
+</Page>

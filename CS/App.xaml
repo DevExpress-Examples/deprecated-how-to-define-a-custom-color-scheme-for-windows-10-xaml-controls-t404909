@@ -1,0 +1,10 @@
+﻿<Application
+    x:Class="ColosSchemesDemo1.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Core="using:DevExpress.Core"    
+    RequestedTheme="Light">
+    <Application.Resources>
+        <Core:GlobalColorSchemeOverrider x:Key="Default" Source="ms-appx:///Themes/OverrideColors.xaml"/>
+    </Application.Resources>
+</Application>
