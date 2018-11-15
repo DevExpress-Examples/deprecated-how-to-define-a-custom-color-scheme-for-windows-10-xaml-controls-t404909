@@ -1,3 +1,9 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [App.xaml](./CS/App.xaml) (VB: [App.xaml](./VB/App.xaml))
+* [OverrideColors.xaml](./CS/Themes/OverrideColors.xaml) (VB: [OverrideColors.xaml](./VB/Themes/OverrideColors.xaml))
+<!-- default file list end -->
 # [Deprecated] How to define a custom Color Scheme for Windows 10 XAML controls
 
 
